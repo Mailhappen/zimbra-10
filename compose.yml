@@ -1,0 +1,35 @@
+services:
+  mail:
+    build: build 
+    image: yeak/zimbra-10
+    hostname: mail.zimbra.lab
+    volumes:
+      - data:/data
+      - ./configs:/configs
+    environment:
+      DEFAULT_PASSWORD: Zimbra2023
+      DEFAULT_TIMEZONE: Asia/Kuala_Lumpur
+      DEFAULT_ADMIN: sysadmin
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "25:25"
+      - "465:465"
+      - "587:587"
+      - "110:110"
+      - "143:143"
+      - "993:993"
+      - "995:995"
+      - "7071:7071"
+      - "9071:9071"
+    networks:
+      - zimbranet
+
+networks:
+  zimbranet:
+    name: zimbranet
+#    external: true
+
+volumes:
+  data:
