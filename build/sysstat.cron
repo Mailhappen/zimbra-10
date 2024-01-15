@@ -1,0 +1,4 @@
+# Run system activity accounting tool every 10 minutes
+*/10 * * * * root /usr/lib64/sa/sa1 1 1
+# Generate a daily summary of process accounting at 00:07
+7 0 * * * root /usr/lib64/sa/sa2 -A
