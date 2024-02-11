@@ -43,6 +43,6 @@ $ docker compose down
 $ docker compose up -d
 ```
 
-# Zimbranet
+# Zimbrenet
 
 The `zimbranet.sh` create a container network and expose the container directly to the host network . This make your container no longer hidden inside the host. Use this with care.

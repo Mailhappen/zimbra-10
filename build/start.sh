@@ -7,8 +7,4 @@ while [ ! -f /init.done -a ! -f /data/configure.done ]; do
 done
 
 # stage2: start zimbra and dump mailbox.log to stay on
-if [ ! -f /zimbra.started ]; then
-  /etc/init.d/zimbra restart
-  touch /zimbra.started
-  tail -f /opt/zimbra/log/mailbox.log
-fi
+/etc/init.d/zimbra restart && exec tail -f /opt/zimbra/log/mailbox.log
