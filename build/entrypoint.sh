@@ -66,28 +66,44 @@ EOT
   touch /data/configure.done
 }
 
+function adjustmemorysize() {
+  # size must be 4 and above. Default 8
+  size=$1
+  [ -z $size ] && size=8
+  [ $size -lt 4 ] && size=4
+  if [ $size -ge 16 ]; then
+    memory=$(($size*1024/5))
+  else
+    memory=$(($size*1024/4))
+  fi
+  su - zimbra -c "zmlocalconfig -e mailboxd_java_heap_size=$memory"
+
+  # mysql always use 30 percent
+  memKB=$(($size * 1024 * 1024))
+  ((bufferPoolSize=memKB * 1024 * 30 / 100))
+  sed -i --follow-symlinks "s/^innodb_buffer_pool_size.*/innodb_buffer_pool_size        = $bufferPoolSize/" /opt/zimbra/conf/my.cnf
+}
+
 # Main
 
-# 1. No argv. Automatically configure Zimbra and run it.
-# 2. With argv. Run the argv. Useful for testing.
+mypassword="${DEFAULT_PASSWORD:=zimbra}"
+myhostname="$(hostname -s)"
+mydomain="$(hostname -d)"
+myfqdn="$myhostname.$mydomain"
+myadmin="${DEFAULT_ADMIN:=sysadmin}"
+mytimezone="${DEFAULT_TIMEZONE:=Asia/Kuala_Lumpur}"
+maxmem="${MAX_MEMORY_GB:=8}"
 
-# Run as service
+# Set system timezone
+[ -f /usr/share/zoneinfo/$mytimezone ] && ln -sf /usr/share/zoneinfo/$mytimezone /etc/localtime && echo $mytimezone > /etc/timezone
+
+# Automatic run as service
 if [ -z "$@" ]; then
   # Good to enable debug here
   set -x
 
-  mypassword="${DEFAULT_PASSWORD:=zimbra}"
-  myhostname="$(hostname -s)"
-  mydomain="$(hostname -d)"
-  myfqdn="$myhostname.$mydomain"
-  myadmin="${DEFAULT_ADMIN:=sysadmin}"
-  mytimezone="${DEFAULT_TIMEZONE}"
-
-  # Avoid running if hostname not set properly
-  [ "$myfqdn" == "$myhostname" ] && exit
-
-  # Set system timezone
-  [ -f /usr/share/zoneinfo/$mytimezone ] && ln -sf /usr/share/zoneinfo/$mytimezone /etc/localtime
+  # Avoid running if mydomain is empty
+  [ -z "$mydomain" ] && exit
 
   # Run init
   [ ! -f /init.done ] && init 
@@ -95,13 +111,18 @@ if [ -z "$@" ]; then
   # Configure
   [ ! -f /data/configure.done ] && configure
 
-  # Get Ready
+  # Post configured. Get Ready to start up.
+
+  # Crontab
   [ ! -f /var/spool/cron/zimbra ] && cp -a /data/zimbra.cron /var/spool/cron/zimbra
+
+  # Adjust mailboxd heap and mysql memory size for container
+  adjustmemorysize $maxmem
 
   # Hand over to supervisord
   [ ! -f /run/supervisord.pid ] && exec /usr/bin/supervisord -c /supervisord.conf
 else
 
-# Run as command
+# Manual run as command to develop entrypoint.sh
   exec "$@"
 fi

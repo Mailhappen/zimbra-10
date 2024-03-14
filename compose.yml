@@ -1,7 +1,10 @@
 services:
   mail:
+    # Build
     build: build 
     image: yeak/zimbra-10
+
+    # Run
     hostname: mail.zimbra.lab
     volumes:
       - data:/data
@@ -10,6 +13,7 @@ services:
       DEFAULT_PASSWORD: Zimbra2023
       DEFAULT_TIMEZONE: Asia/Kuala_Lumpur
       DEFAULT_ADMIN: sysadmin
+      MAX_MEMORY_GB: 8
     restart: unless-stopped
     ports:
       - "80:80"
@@ -33,3 +37,4 @@ networks:
 
 volumes:
   data:
+
