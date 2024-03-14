@@ -1,10 +1,19 @@
 #!/bin/bash
 set -x
 
-# stage1: wait until ready
+# step1: wait for container to get ready
 while [ ! -f /init.done -a ! -f /data/configure.done ]; do
     sleep 10
 done
 
-# stage2: start zimbra and dump mailbox.log to stay on
-/etc/init.d/zimbra restart && exec tail -f /opt/zimbra/log/mailbox.log
+# step2: run pre-startup.sh script 
+[ -x /configs/pre-startup.sh ] && /configs/pre-startup.sh
+
+# step3: startup zimbra
+/etc/init.d/zimbra restart
+
+# step4: run post-startup.sh script
+[ -x /configs/post-startup.sh ] && /configs/post-startup.sh
+
+# step5: Go into uninterrupted running
+exec tail -f /opt/zimbra/log/mailbox.log
