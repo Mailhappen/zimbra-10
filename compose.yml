@@ -10,7 +10,7 @@ services:
       - data:/data
       - ./configs:/configs
     environment:
-      DEFAULT_PASSWORD: Zimbra2023
+      DEFAULT_PASSWORD: Zimbra2024
       DEFAULT_TIMEZONE: Asia/Kuala_Lumpur
       DEFAULT_ADMIN: sysadmin
       MAX_MEMORY_GB: 8
@@ -27,12 +27,12 @@ services:
       - "995:995"
       - "7071:7071"
       - "9071:9071"
-    networks:
-      - zimbranet
+#    networks:
+#      - zimbranet
 
-networks:
-  zimbranet:
-    name: zimbranet
+#networks:
+#  zimbranet:
+#    name: zimbranet
 #    external: true
 
 volumes:

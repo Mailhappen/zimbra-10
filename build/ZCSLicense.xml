@@ -1,34 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ZimbraLicense verifier="ZV2">
-  <item name="AccountsLimit" value="50"/>
-  <item name="ArchivingAccountsLimit" value="50"/>
-  <item name="AttachmentConversionEnabled" value="true"/>
-  <item name="AttachmentIndexingAccountsLimit" value="50"/>
-  <item name="BackupEnabled" value="true"/>
-  <item name="CrossMailboxSearchEnabled" value="true"/>
-  <item name="EwsAccountsLimit" value="50"/>
-  <item name="HierarchicalStorageManagementEnabled" value="true"/>
-  <item name="ISyncAccountsLimit" value="50"/>
-  <item name="InstallType" value="trial"/>
-  <item name="IssuedOn" value="20230824185849Z"/>
-  <item name="IssuedToEmail" value="yeak@mailhappen.com"/>
-  <item name="IssuedToName" value="Mailhappen Sdn Bhd"/>
-  <item name="LicenseId" value="fb4e527a-1d5a-486a-a66a-3a2d9ccee172"/>
-  <item name="MAPIConnectorAccountsLimit" value="50"/>
-  <item name="MobileSyncAccountsLimit" value="50"/>
-  <item name="MobileSyncEnabled" value="true"/>
-  <item name="ResellerName" value=""/>
-  <item name="SMIMEAccountsLimit" value="50"/>
-  <item name="TouchClientsAccountsLimit" value="50"/>
-  <item name="TwoFactorAuthAccountsLimit" value="50"/>
-  <item name="ValidFrom" value="20230823000000Z"/>
-  <item name="ValidUntil" value="20231024160000Z"/>
-  <item name="VoiceAccountsLimit" value="50"/>
-  <item name="ZSSAccountsLimit" value="50"/>
-  <item name="ZTalkAccountsLimit" value="50"/>
-  <item name="ZXAccountsLimit" value="50"/>
-  <item name="ZXDesktopAccountsLimit" value="50"/>
-  <item name="ZXWebAccountsLimit" value="50"/>
-  <signature value="3d14746f6df5fa2787d842912914fc37feaae362871be69459d2fd8f4a097801ad21c1e856725ceeacd96e43b4df380dc3d80c6130c8c13fcb91c134ea3f2eebf784c3724305d04e7db35b115d2cfb5872ca2ae34fde66899a2a3f66f0f8f34e1eba447ad196e1a3a0ddafc4d6059014448f069a738a36e9e92656148c6803d62bed21cbfdb93c45d6d5397f6f5edd7719936fa21f68cbb1e48a40f86adabf98ea50bea6bf450da58aa454efd0365a11d6a07bb0622747bf8285b6c446a0f61f41c3869d35e914baa0707279882508edd86ecd3c3e1602d99cd1b811441cbbc432c8fb274e2404a14b420681a1ce77224a53ea71fc5cd364ad86c4c124cf43a5" key="zk1"/>
+    <item name="AccountsLimit" value="50"/>
+    <item name="ArchivingAccountsLimit" value="50"/>
+    <item name="AttachmentIndexingAccountsLimit" value="50"/>
+    <item name="EwsAccountsLimit" value="50"/>
+    <item name="ISyncAccountsLimit" value="50"/>
+    <item name="InstallType" value="trial"/>
+    <item name="IssuedOn" value="20240214000000Z"/>
+    <item name="IssuedToEmail" value="yeak@mailhappen.com"/>
+    <item name="IssuedToName" value="Mailhappen Sdn Bhd"/>
+    <item name="LicenseId" value="539407141634229199"/>
+    <item name="MAPIConnectorAccountsLimit" value="50"/>
+    <item name="MobileSyncAccountsLimit" value="50"/>
+    <item name="ResellerName" value=""/>
+    <item name="SMIMEAccountsLimit" value="50"/>
+    <item name="TouchClientsAccountsLimit" value="50"/>
+    <item name="TwoFactorAuthAccountsLimit" value="50"/>
+    <item name="ValidFrom" value="20240214000000Z"/>
+    <item name="ValidUntil" value="20240414235959Z"/>
+    <item name="VoiceAccountsLimit" value="50"/>
+    <item name="ZSSAccountsLimit" value="50"/>
+    <item name="ZTalkAccountsLimit" value="50"/>
+    <item name="ZXAccountsLimit" value="50"/>
+    <item name="ZXDesktopAccountsLimit" value="50"/>
+    <item name="ZXWebAccountsLimit" value="50"/>
+    <signature value="3d2b90b5a2ac7b2bbdae9c5e0dd2d0ce98e1f6633a3256b034d22d8ef8ca6206eccfe91e68a8d8d19c5fce2687d28db33be764f00f6ac7e6cfcd6b4ac79d52616ab9be41a7615641f5fee90ae2fb45bfdf2547ab06ec5ea55afc4090039cba07079b5d6c097a579143f5d092da22c317fb1a93951021cd90607677ff041bd8a8a85715b5b54918864ed5b9afbb267469ae46edaf73e5f12f8f3cc7a1eb3a6af45133e4fd63a74d368f79acfcc4d9c868262ecbbe911cd705e3ca5aeabf5e1b50b1c00d26724334df41080c3ab9cbc656a1e7168490e554f4557c0850ce52c863efc4c5960d152fd7934e53d69cf423f926451ddeae6b5e566dffdcc5b030d00e" key="zk1"/>
 </ZimbraLicense>

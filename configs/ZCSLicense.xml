@@ -6,23 +6,23 @@
     <item name="EwsAccountsLimit" value="50"/>
     <item name="ISyncAccountsLimit" value="50"/>
     <item name="InstallType" value="trial"/>
-    <item name="IssuedOn" value="20240115000000Z"/>
+    <item name="IssuedOn" value="20240214000000Z"/>
     <item name="IssuedToEmail" value="yeak@mailhappen.com"/>
     <item name="IssuedToName" value="Mailhappen Sdn Bhd"/>
-    <item name="LicenseId" value="539487125952703098"/>
+    <item name="LicenseId" value="539407141634229199"/>
     <item name="MAPIConnectorAccountsLimit" value="50"/>
     <item name="MobileSyncAccountsLimit" value="50"/>
     <item name="ResellerName" value=""/>
     <item name="SMIMEAccountsLimit" value="50"/>
     <item name="TouchClientsAccountsLimit" value="50"/>
     <item name="TwoFactorAuthAccountsLimit" value="50"/>
-    <item name="ValidFrom" value="20240115000000Z"/>
-    <item name="ValidUntil" value="20240315235959Z"/>
+    <item name="ValidFrom" value="20240214000000Z"/>
+    <item name="ValidUntil" value="20240414235959Z"/>
     <item name="VoiceAccountsLimit" value="50"/>
     <item name="ZSSAccountsLimit" value="50"/>
     <item name="ZTalkAccountsLimit" value="50"/>
     <item name="ZXAccountsLimit" value="50"/>
     <item name="ZXDesktopAccountsLimit" value="50"/>
     <item name="ZXWebAccountsLimit" value="50"/>
-    <signature value="6f3364ed88a3ab5c1c6656c6ed2a111b07bd35834847dc43e7927d9e4dc8b61ecd9bc724502e4c60437fc95c09f1236d27c8220e2a682a8468a9589e2863bb9c629e4a1c7e5ddcde94a2a1a66a0b408852536f5cbd850abb795803cdc7496c705bf48763722345e73165f2e696a7e68e76d905b91f1eab8b9fc18bc324d4bf52e8a2ceae10c511a733357bba487f2680439edd477af8370cb65e193a5896ce9fe51092fad2fb6695773b424841438510f07c5639db7171a966293927a948769160069a6e7b285e578d45dbc5d3f0735072ad3b610457becb59c68e39bb9990be4f2e45a9844fafa86a10d09773fe453beca769e4dbbe3dd97544aa1ed25d6e39" key="zk1"/>
+    <signature value="3d2b90b5a2ac7b2bbdae9c5e0dd2d0ce98e1f6633a3256b034d22d8ef8ca6206eccfe91e68a8d8d19c5fce2687d28db33be764f00f6ac7e6cfcd6b4ac79d52616ab9be41a7615641f5fee90ae2fb45bfdf2547ab06ec5ea55afc4090039cba07079b5d6c097a579143f5d092da22c317fb1a93951021cd90607677ff041bd8a8a85715b5b54918864ed5b9afbb267469ae46edaf73e5f12f8f3cc7a1eb3a6af45133e4fd63a74d368f79acfcc4d9c868262ecbbe911cd705e3ca5aeabf5e1b50b1c00d26724334df41080c3ab9cbc656a1e7168490e554f4557c0850ce52c863efc4c5960d152fd7934e53d69cf423f926451ddeae6b5e566dffdcc5b030d00e" key="zk1"/>
 </ZimbraLicense>

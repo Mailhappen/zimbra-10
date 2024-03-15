@@ -23,13 +23,16 @@ function init() {
   copyln /data/ssl              /opt/zimbra/ssl
   copyln /data/ssh              /opt/zimbra/.ssh
   copyln /data/logger           /opt/zimbra/logger
+  copyln /data/zimlets-deployed /opt/zimbra/zimlets-deployed
+  copyln /data/rsyslog.conf     /etc/rsyslog.conf
+
+  # to improve more in future...
   copyln /data/common-conf      /opt/zimbra/common/conf
   copyln /data/common-etc       /opt/zimbra/common/etc
   copyln /data/common-jetty     /opt/zimbra/common/jetty_home
   copyln /data/jetty-etc        /opt/zimbra/jetty_base/etc
   copyln /data/install_history  /opt/zimbra/.install_history
-  copyln /data/zimlets-deployed /opt/zimbra/zimlets-deployed
-  copyln /data/rsyslog.conf     /etc/rsyslog.conf
+  #copyln /data/onlyoffice       /opt/zimbra/onlyoffice
 
   # done initialize
   touch /init.done
@@ -58,9 +61,11 @@ EOT
   # do the setup
   /opt/zimbra/libexec/zmsetup.pl -c /tmp/defaultsfile
 
-  # keep results
-  cp -a /var/spool/cron/zimbra /data/zimbra.cron
-  cp -a /opt/zimbra/config.* /data/
+  # keep results after configure
+  cp -a /var/spool/cron/zimbra        /data/zimbra.cron
+  cp -a /etc/rsyslog.conf             /data/rsyslog.conf
+  cp -a /etc/logrotate.d/zimbra       /data/zimbra.logrotate
+  cp -a /opt/zimbra/config.*          /data/
   cp -a /opt/zimbra/log/zmsetup.*.log /data/
 
   touch /data/configure.done
@@ -111,18 +116,21 @@ if [ -z "$@" ]; then
   # Configure
   [ ! -f /data/configure.done ] && configure
 
-  # Post configured. Get Ready to start up.
-
-  # Crontab
+  #
+  # System ready to start up.
+  #
+ 
+  # restore system files
   [ ! -f /var/spool/cron/zimbra ] && cp -a /data/zimbra.cron /var/spool/cron/zimbra
+  [ ! -f /etc/logrotate.d/zimbra ] && cp -a /data/zimbra.logrotate /etc/logrotate.d/zimbra
 
   # Adjust mailboxd heap and mysql memory size for container
   adjustmemorysize $maxmem
 
   # Hand over to supervisord
   [ ! -f /run/supervisord.pid ] && exec /usr/bin/supervisord -c /supervisord.conf
-else
 
+else
 # Manual run as command to develop entrypoint.sh
   exec "$@"
 fi

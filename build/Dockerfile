@@ -46,6 +46,7 @@ RUN cd /installer \
 COPY --chmod=644 supervisord.conf /supervisord.conf
 COPY --chmod=775 supervisor/ /supervisor/
 COPY --chmod=644 sysstat.cron /etc/cron.d/sysstat
+COPY --chmod=775 savedata.sh /etc/cron.daily/savedata.sh
 COPY --chmod=775 entrypoint.sh start.sh /
 
 ENTRYPOINT ["/entrypoint.sh"]
